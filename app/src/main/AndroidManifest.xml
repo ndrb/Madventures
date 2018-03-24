@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.madventures.sawmalie.madventures">
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps">
+        </activity>
+
+        <activity
+            android:name=".TipCalcActivity"
+            android:label="@string/tip_calc_title" >
+        </activity>
+
+        <activity
+            android:name=".MIConverter"
+            android:label="@string/mi_conv_title" >
+        </activity>
+
+        <activity
+            android:name=".PlaceHolder"
+            android:label="@string/placeholder" >
+        </activity>
+
+        <activity
+            android:name=".CurrencyConverter"
+            android:label="@string/cur_converter" >
+        </activity>
+
+        <activity
+            android:name=".Weather"
+            android:label="@string/weather_activity" >
+        </activity>
+
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_user_info" >
+        </activity>
+
+        <activity
+            android:name=".TodayActivity"
+            android:label="@string/today_activity" >
+        </activity>
+
+        <activity
+            android:name=".Itinerary"
+            android:label="@string/itinerary_activity" >
+        </activity>
+
+        <activity
+            android:name=".CreateNewItinerary"
+            android:label="@string/create_new_itinerary" >
+        </activity>
+
+        <activity
+            android:name=".Settings"
+            android:label="@string/settings" >
+        </activity>
+
+        <activity
+            android:name=".ItineraryForTripActivity"
+            android:label="@string/manage_trips_activity"
+            android:parentActivityName=".Itinerary">
+        </activity>
+
+        <activity
+            android:name=".ManageTrips"
+            android:label="@string/manage_trips_activity" >
+        </activity>
+
+        <activity
+            android:name=".ItineraryDetails"
+            android:label="@string/itinerary_details" >
+        </activity>
+
+    </application>
+
+</manifest>

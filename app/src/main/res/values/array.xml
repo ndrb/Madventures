@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="distance_imperial_array">
+        <item>cm</item>
+        <item>m</item>
+        <item>km</item>
+    </string-array>
+
+    <string-array name="distance_metric_array">
+        <item>inches</item>
+        <item>miles</item>
+    </string-array>
+
+
+
+
+
+    <string-array name="volume_imperial_array">
+        <item>ml</item>
+        <item>litres</item>
+    </string-array>
+
+    <string-array name="volume_metric_array">
+        <item>pints</item>
+        <item>gallons</item>
+    </string-array>
+
+
+
+
+
+    <string-array name="weight_imperial_array">
+        <item>kg</item>
+    </string-array>
+
+    <string-array name="weight_metric_array">
+        <item>pound</item>
+    </string-array>
+</resources>

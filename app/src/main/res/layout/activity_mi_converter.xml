@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/distance_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/distance"
+            android:textSize="50sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/first_distance_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:layout_margin="@dimen/padding_tip_calc"
+                android:inputType="number"/>
+
+            <EditText
+                android:id="@+id/second_distance_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:layout_margin="@dimen/padding_tip_calc"
+                android:inputType="number"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Spinner
+                android:id="@+id/distance_imperial"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/padding_tip_calc"
+                android:entries="@array/distance_imperial_array"/>
+
+
+            <Spinner
+                android:id="@+id/distance_metric"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/padding_tip_calc"
+                android:entries="@array/distance_metric_array" />
+            <!-- android:prompt="@string/country_prompt" /> -->
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_conv_distance_itm"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_conv_distance_itm"
+            android:onClick="convertDistanceITM" />
+
+        <Button
+            android:id="@+id/button_conv_distanceMTI"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_conv_distance_mti"
+            android:onClick="convertDistanceMTI" />
+
+        <TextView
+            android:id="@+id/volume_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/volume"
+            android:textSize="50sp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/first_volume_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:layout_margin="@dimen/padding_tip_calc"
+                android:inputType="number"/>
+
+            <EditText
+                android:id="@+id/second_volume_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:layout_margin="@dimen/padding_tip_calc"
+                android:inputType="number"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Spinner
+                android:id="@+id/volume_imperial"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/padding_tip_calc"
+                android:entries="@array/volume_imperial_array"/>
+
+
+            <Spinner
+                android:id="@+id/volume_metric"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/padding_tip_calc"
+                android:entries="@array/volume_metric_array" />
+            <!-- android:prompt="@string/country_prompt" /> -->
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_conv_volume_itm"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_conv_volume_itm"
+            android:onClick="convertVolumeITM" />
+
+        <Button
+            android:id="@+id/button_conv_volume_mti"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_conv_distance_mti"
+            android:onClick="convertVolumeMTI" />
+
+        <TextView
+            android:id="@+id/weight_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/weight"
+            android:textSize="50sp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/first_weight_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:layout_margin="@dimen/padding_tip_calc"
+                android:inputType="number"/>
+
+            <EditText
+                android:id="@+id/second_weight_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:layout_margin="@dimen/padding_tip_calc"
+                android:inputType="number"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Spinner
+                android:id="@+id/weight_imperial"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/padding_tip_calc"
+                android:entries="@array/weight_imperial_array"/>
+
+
+            <Spinner
+                android:id="@+id/weight_metric"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/padding_tip_calc"
+                android:entries="@array/weight_metric_array" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_conv_weight_itm"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_conv_weight_itm"
+            android:onClick="convertWeightITM" />
+
+        <Button
+            android:id="@+id/button_conv_weight_mti"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_conv_weight_mti"
+            android:onClick="convertWeightMTI" />
+
+    </LinearLayout>
+</ScrollView>
