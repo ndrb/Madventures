@@ -2,17 +2,22 @@ package com.madventures.sawmalie.madventures;
 
 
 import Util.MadventureMenuActivity;
-import com.madventures.sawmalie.madventures.ImageAdapter;
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.content.pm.PackageManager;
+
+import com.madventures.sawmalie.madventures.GSuite.Picker;
 
 /**
  * Main Activity that displays a GridView and sets onItemClick for every
@@ -29,6 +34,8 @@ public class MainActivity extends MadventureMenuActivity {
     private static final int WEATHER_VAL = 5;
     private static final int CUR_CONV_VAL = 6;
 
+    private static final int PLACE_PICKER_VAL = 8;
+    private static final int MAPS_VAL = 9;
     private static final int MANAGE_TRIPS_VAL = 10;
 
     private TextView helloTextView;
@@ -55,6 +62,21 @@ public class MainActivity extends MadventureMenuActivity {
             }
 
         });
+
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+    }
+
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                } else {
+                    Toast.makeText(this, "Denying Location can limit app functionality :(",Toast.LENGTH_LONG).show();
+                }
+                return;
+            }
+        }
     }
 
     /**
@@ -87,6 +109,13 @@ public class MainActivity extends MadventureMenuActivity {
                 break;
             case ITINERARY_VAL:
                 i = new Intent(this, Itinerary.class);
+                break;
+            case PLACE_PICKER_VAL:
+                i = new Intent(this, PlacePicker.class);
+                Log.v("LOL",i.toString());
+                break;
+            case MAPS_VAL:
+                i = new Intent(this, MapsActivity.class);
                 break;
             default:
                 i = new Intent(this, PlaceHolder.class);
