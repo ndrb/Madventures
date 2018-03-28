@@ -5,15 +5,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.math.RoundingMode;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
+import java.text.DecimalFormat;
+import java.util.List;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import Util.MadventureMenuActivity;
 import android.content.Context;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -29,8 +34,9 @@ public class Weather extends MadventureMenuActivity {
     double longitude;
     double latitude;
 
-    private final String API_KEY = "&appid=2de143494c0b295cca9337e1e96b00e0&units=metric";
-    private final String BASE_URL = "http://api.openweathermap.org/data/2.5/weather?";
+    //Sample URL=http://api.openweathermap.org/data/2.5/forecast?lat=45.50&lon=-73.554&APPID=4bf9a6c0d5ea9993f7023185c9d5f3f9
+    private final String API_KEY = "&appid=4bf9a6c0d5ea9993f7023185c9d5f3f9&units=metric";
+    private final String BASE_URL = "http://api.openweathermap.org/data/2.5/forecast?";
 
     private TextView errorField;
     private static final int MAXBYTES = 500;
@@ -43,31 +49,46 @@ public class Weather extends MadventureMenuActivity {
         errorField = (TextView) findViewById(R.id.error_field);
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
 
         // Acquire a reference to the system Location Manager
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        Location location = null;
-        try{
-            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-        }
-        catch(SecurityException e){
-            Toast.makeText(this, "Please enable location access :(",
-                    Toast.LENGTH_LONG).show();
+
+        // Define a listener that responds to location updates
+        LocationListener locationListener = new LocationListener()
+        {
+            public void onLocationChanged(Location location) {
+                // Called when a new location is found by the network location provider.
+                //make Use Of New Location
+                if (location != null) {
+                    longitude = location.getLongitude();
+                    latitude = location.getLatitude();
+                    Log.i("URL", BASE_URL + "lat=" + latitude + "&lon=" + longitude + API_KEY);
+                    new DownloadWebpageText().execute(BASE_URL + "lat=" + latitude + "&lon=" + longitude + API_KEY);
+                }
+
+                else {
+                    errorField.setText(getString(R.string.weather_error));
+                }
+            }
+
+            public void onStatusChanged(String provider, int status, Bundle extras) {}
+
+            public void onProviderEnabled(String provider) {}
+
+            public void onProviderDisabled(String provider) {}
+        };
+
+        // Register the listener with the Location Manager to receive location updates
+        if((this.checkCallingOrSelfPermission("android.permission.ACCESS_FINE_LOCATION")) == 0)
+        {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
         }
 
-        if (location != null) {
-            longitude = location.getLongitude();
-            latitude = location.getLatitude();
-            Log.i("URL", BASE_URL + "lat=" + latitude + "&lon=" + longitude + API_KEY);
-            new DownloadWebpageText().execute(BASE_URL + "lat=" + latitude + "&lon=" + longitude + API_KEY);
-        }
 
-        else {
-            errorField.setText(getString(R.string.weather_error));
-        }
     }
 
     /**
@@ -94,7 +115,7 @@ public class Weather extends MadventureMenuActivity {
                 TextView descField = (TextView) findViewById(R.id.description_res);
                 TextView humidityField = (TextView) findViewById(R.id.humidity_res);
                 locationField.setText(results[2]);
-                tempField.setText(results[0] + getString(R.string.celcius));
+                tempField.setText(Math.round(Float.parseFloat(results[0])) + getString(R.string.celcius));
                 descField.setText(results[3]);
                 humidityField.setText(results[1] + "%");
             }
@@ -144,7 +165,6 @@ public class Weather extends MadventureMenuActivity {
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
             conn.connect();
-
             int response = conn.getResponseCode();
 
             if (response != HttpURLConnection.HTTP_OK)
@@ -195,7 +215,6 @@ public class Weather extends MadventureMenuActivity {
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream, "UTF-8"), len);
         StringBuilder sb = new StringBuilder();
         String line = null;
-
         while ((line = reader.readLine()) != null) {
             sb.append(line + "\n");
         }
@@ -228,11 +247,12 @@ public class Weather extends MadventureMenuActivity {
         JSONObject JSONholder;
         JSONArray JSONarray;
         String results = "";
-
         Log.i("pJSONr", jobj.toString());
 
-        if (jobj.has("main")) {
-            JSONholder = new JSONObject(jobj.getString("main"));
+        if (jobj.has("list")) {
+            JSONArray JSONholderList = new JSONArray(jobj.getString("list"));
+            JSONObject JSONholderCurrentDay = new JSONObject(JSONholderList.getString(Integer.parseInt("0")));
+            JSONholder = new JSONObject(JSONholderCurrentDay.getString(String.valueOf((("main")))));
 
             if (JSONholder.has("temp")) {
                 results += JSONholder.getString("temp") + ",";
@@ -242,21 +262,18 @@ public class Weather extends MadventureMenuActivity {
             }
         }
 
-        if (jobj.has("name")) {
-            results += jobj.getString("name") + ",";
+        if (jobj.has("city")) {
+            JSONObject city = new JSONObject(jobj.getString("city"));
+            results += city.getString("name") + ",";
         }
 
-        if (jobj.has("weather")) {
-            JSONarray = new JSONArray(jobj.getString("weather"));
-            int length = JSONarray.length();
-            for (int i = 0; i < length; i++) {
-                // unnamed objects in array: [ {}, {}, {} ... ]
-                JSONholder = JSONarray.getJSONObject(i);
-                // named items in array
-                if (JSONholder.has("description")) {
-                    results += JSONholder.getString("description");
-                }
-            }
+        JSONArray JSONholderList = new JSONArray(jobj.getString("list"));
+        JSONObject JSONholderCurrentDay = new JSONObject(JSONholderList.getString(Integer.parseInt("0")));
+        if (JSONholderCurrentDay.has("weather")) {
+            JSONArray jb = new JSONArray(JSONholderCurrentDay.getString("weather"));
+            JSONObject jblist = new JSONObject(jb.getString(0));
+            results += jblist.getString("description");
+
         }
         Log.i("ttt", results);
         return results;
