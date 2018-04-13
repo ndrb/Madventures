@@ -2,6 +2,8 @@ package com.madventures.sawmalie.madventures;
 
 
 import Util.MadventureMenuActivity;
+import Util.logger.Log;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
@@ -84,7 +86,18 @@ public class CreateNewItinerary extends MadventureMenuActivity {
 
                     else
                     {
-                        invalidInput(v);
+                        if(budgetAmt.getText().toString().trim().isEmpty())
+                            budgetAmt.setText("0");
+                        if(desc.getText().toString().trim().isEmpty())
+                            desc.setText(desc.getHint());
+                        if(categ.getText().toString().trim().isEmpty())
+                            categ.setText(categ.getHint());
+                        if(supName.getText().toString().trim().isEmpty())
+                            supName.setText(supName.getHint());
+                        if(addr.getText().toString().trim().isEmpty())
+                            addr.setText(addr.getHint());
+
+                        complete();
                     }
                 }
 
@@ -107,7 +120,28 @@ public class CreateNewItinerary extends MadventureMenuActivity {
 
                     else
                     {
-                        invalidInput(v);
+                        if(nameArea.getText().toString().trim().isEmpty())
+                            invalidInput(v);
+                        else
+                        {
+                            if(locDesc.getText().toString().trim().isEmpty())
+                                locDesc.setText(locDesc.getHint());
+                            if(city.getText().toString().trim().isEmpty())
+                                city.setText(city.getHint());
+                            if(cc.getText().toString().trim().isEmpty())
+                                cc.setText(cc.getHint());
+                            if(budgetAmt.getText().toString().trim().isEmpty())
+                                budgetAmt.setText("0");
+                            if(desc.getText().toString().trim().isEmpty())
+                                desc.setText(desc.getHint());
+                            if(categ.getText().toString().trim().isEmpty())
+                                categ.setText(categ.getHint());
+                            if(supName.getText().toString().trim().isEmpty())
+                                supName.setText(supName.getHint());
+                            if(addr.getText().toString().trim().isEmpty())
+                                addr.setText(addr.getHint());
+                            complete();
+                        }
                     }
                 }
             }
