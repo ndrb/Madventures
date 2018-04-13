@@ -17,6 +17,6 @@
 package com.madventures.sawmalie.madventures.GSuite.cardstream;
 
 public interface CardStream {
-    public CardStreamFragment getCardStream();
+    CardStreamFragment getCardStream();
 }
 

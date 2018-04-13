@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">Madventures</string>
+    <string name="app_desc">This application can be used to help you during your travels.
+    The main functionality is creating and maintaining a list of Itineraries. You can think of an \'Itinerary\'
+    as a trip to the museum, trip to the airport, a 3 day camping trip. You can create new Itineraries,
+        and in the \'My Itinerary\' section, when you long press on an item in the list, you will be able to delete the Itinerary.
+    Auxiliary functionality also exists, such as unit conversion, currency conversion, a tip calculator, daily weather forecast,
+        Google Maps integrated into the application itself, and other features such as local recommendations and budget tracking will be coming in the next updates.
+    We would like to thank Stack Overflow for answering all our questions.
+    Mr. Bernard and the TA\'s Maude and Etienne for their time and help.
+    All copyrights go to their rightful owners, including the images.
+    Google Maps API and Google Places API are Copyrighted 2013 under The Android Open Source Project
+    and are licensed under the Apache License.</string>
 
     <string name="title_activity_maps">Map</string>
 
@@ -58,7 +69,7 @@
     <string name="title_activity_about">AboutActivity</string>
     <string name="authors">Elias, Nader, Walid</string>
     <string name="authorstitle">Authors:</string>
-    <string name="udem">UdeM</string>
+    <string name="udem">University de Montreal</string>
     <string name="courseid">IFT 2905</string>
     <string name="title_activity_user_info">Info</string>
     <string name="entername">Enter your full name:</string>
@@ -91,7 +102,7 @@
 
     <!--  Strings for create new itinarery -->
     <string name="create_new_itinerary">Save</string>
-    <string name="location_name">Name of area</string>
+    <string name="location_name">Name of area *</string>
     <string name="location_desc">Location Description</string>
     <string name="location_city">City</string>
     <string name="location_cc">Country Code</string>

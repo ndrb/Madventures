@@ -543,7 +543,7 @@ public class CardStreamLinearLayout extends LinearLayout {
     }
 
     public interface OnDissmissListener {
-        public void onDismiss(String tag);
+        void onDismiss(String tag);
     }
 
     /**

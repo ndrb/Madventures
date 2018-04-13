@@ -1,5 +1,6 @@
 package com.madventures.sawmalie.madventures;
 
+import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -36,7 +37,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setMyLocationEnabled(true);
 
         // Acquire a reference to the system Location Manager
-        LocationManager locationManager = (LocationManager) this.getSystemService(this.LOCATION_SERVICE);
+        LocationManager locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
 
         // Define a listener that responds to location updates
         LocationListener locationListener = new LocationListener() {

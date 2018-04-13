@@ -6,4 +6,5 @@
     <item name="card_title" type="id"/>
     <item name="card_content" type="id"/>
     <item name="card_overlay" type="id"/>
+    <item name="desc_aboot" type="id"/>
 </resources>

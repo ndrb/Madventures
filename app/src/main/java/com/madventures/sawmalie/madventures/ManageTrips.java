@@ -56,7 +56,7 @@ public class ManageTrips extends MadventureMenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manage_trips);
 
-        errorLabel = (TextView) findViewById(R.id.error_label);
+        errorLabel = findViewById(R.id.error_label);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String us = prefs.getString("USERNAME", null);
@@ -67,8 +67,8 @@ public class ManageTrips extends MadventureMenuActivity {
             startActivity(s);
         }
 
-        lv = (ListView) findViewById(R.id.mtListView);
-        bu = (Button) findViewById(R.id.bu);
+        lv = findViewById(R.id.mtListView);
+        bu = findViewById(R.id.bu);
 
         bu.setOnClickListener(new OnClickListener() {
             @Override
@@ -272,7 +272,7 @@ public class ManageTrips extends MadventureMenuActivity {
          *            down-loaded
          * @return String result from processJSONResponse method
          */
-        public String readIt(InputStream stream) throws IOException, UnsupportedEncodingException {
+        public String readIt(InputStream stream) throws IOException {
 
             String buffer = "";
             BufferedReader reader = null;

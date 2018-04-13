@@ -84,7 +84,7 @@ public class CurrencyConverter extends MadventureMenuActivity {
             startActivity(s);
         }
 
-        textView = (TextView) findViewById(R.id.tv);
+        textView = findViewById(R.id.tv);
 
         if (savedInstanceState != null)
         {
@@ -92,7 +92,7 @@ public class CurrencyConverter extends MadventureMenuActivity {
             textView.setText(savedText);
         }
 
-        amount = (EditText) findViewById(R.id.amount);
+        amount = findViewById(R.id.amount);
 
         // Traverse the Set of Currencies and retrieve their display names and
         // ISO code
@@ -116,8 +116,8 @@ public class CurrencyConverter extends MadventureMenuActivity {
      * Add items into the two spinners dynamically using an ArrayAdapter.
      */
     public void addItemsOnSpinners() {
-        spinnerFrom = (Spinner) findViewById(R.id.spinnerFrom);
-        spinnerTo = (Spinner) findViewById(R.id.spinnerTo);
+        spinnerFrom = findViewById(R.id.spinnerFrom);
+        spinnerTo = findViewById(R.id.spinnerTo);
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,
                 currenciesName);
@@ -136,7 +136,7 @@ public class CurrencyConverter extends MadventureMenuActivity {
      * to retrieve the ISO code of that currency from an ArrayList of ISO codes.
      */
     public void addListenerOnButton() {
-        btnSubmit = (Button) findViewById(R.id.btnSubmit);
+        btnSubmit = findViewById(R.id.btnSubmit);
 
         btnSubmit.setOnClickListener(new OnClickListener() {
 
@@ -279,7 +279,7 @@ public class CurrencyConverter extends MadventureMenuActivity {
      *            the maximum byte length to read from the stream
      * @return String result from processJSONResponse method
      */
-    public String readIt(InputStream stream, int len) throws IOException, UnsupportedEncodingException {
+    public String readIt(InputStream stream, int len) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream, "UTF-8"), len);
         StringBuilder sb = new StringBuilder();
         String line = null;

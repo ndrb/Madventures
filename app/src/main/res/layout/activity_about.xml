@@ -36,7 +36,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_bottom"
         android:layout_marginBottom="@dimen/padding_bottom"
         android:orientation="vertical">
@@ -56,5 +56,22 @@
             android:text="@string/authors"/>
 
     </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#FF0000FF" />
+
+    <TextView
+        android:id="@+id/desc_aboot"
+        android:maxLines = "50"
+        android:scrollbars = "vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_marginTop="@dimen/padding_bottom"
+        android:layout_marginBottom="@dimen/padding_bottom"
+        android:text="@string/app_desc" />
 
 </LinearLayout>

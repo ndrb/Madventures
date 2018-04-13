@@ -30,21 +30,21 @@ public class TipCalcActivity extends MadventureMenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tip_calc);
 
-        billTotalEdit = (EditText) findViewById(R.id.bill_edit);
+        billTotalEdit = findViewById(R.id.bill_edit);
 
-        tipEdit = (EditText) findViewById(R.id.tip_edit);
+        tipEdit = findViewById(R.id.tip_edit);
 
-        numOfPpl = (EditText) findViewById(R.id.numbers_for_humans_edit);
+        numOfPpl = findViewById(R.id.numbers_for_humans_edit);
 
-        calcTip = (Button) findViewById(R.id.calc_tip);
+        calcTip = findViewById(R.id.calc_tip);
 
-        finalTip = (TextView) findViewById(R.id.final_tip_result);
+        finalTip = findViewById(R.id.final_tip_result);
 
-        finalTotal = (TextView) findViewById(R.id.total_label_result);
+        finalTotal = findViewById(R.id.total_label_result);
 
-        perPersonTotal = (TextView) findViewById(R.id.total_per_person_result);
+        perPersonTotal = findViewById(R.id.total_per_person_result);
 
-        radioGroup = (RadioGroup) findViewById(R.id.radio_group);
+        radioGroup = findViewById(R.id.radio_group);
 
         if (savedInstanceState != null)
         {
@@ -153,7 +153,7 @@ public class TipCalcActivity extends MadventureMenuActivity {
         // This is needed here in order to retrieve the checked radio button
         // every time
         // the user clicks on a new radio button.
-        radioButton = (RadioButton) findViewById(radioGroup.getCheckedRadioButtonId());
+        radioButton = findViewById(radioGroup.getCheckedRadioButtonId());
 
         // Retrieves the text of the radio button selected
         String ident = radioButton.getText().toString();

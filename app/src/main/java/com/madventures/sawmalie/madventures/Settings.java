@@ -41,11 +41,11 @@ public class Settings extends MadventureMenuActivity {
 
         context = this;
 
-        usernm = (EditText) findViewById(R.id.name_edit);
+        usernm = findViewById(R.id.name_edit);
 
-        passwd = (EditText) findViewById(R.id.passwd_edit);
+        passwd = findViewById(R.id.passwd_edit);
 
-        spinnerFrom = (Spinner) findViewById(R.id.curr_spinner);
+        spinnerFrom = findViewById(R.id.curr_spinner);
 
         for (Currency c : currencies) {
             currenciesName.add(c.getDisplayName());
@@ -75,7 +75,7 @@ public class Settings extends MadventureMenuActivity {
             spinnerFrom.setSelection(cur);
         }
 
-        btnSubmit = (Button) findViewById(R.id.btnSubmit);
+        btnSubmit = findViewById(R.id.btnSubmit);
 
         btnSubmit.setOnClickListener(new OnClickListener() {
             @Override

@@ -505,7 +505,7 @@ public class Card {
             }
 
 
-            ViewGroup actionArea = (ViewGroup) cardView.findViewById(R.id.card_actionarea);
+            ViewGroup actionArea = cardView.findViewById(R.id.card_actionarea);
 
             // Inflate Progress
             initializeProgressView(inflater, actionArea);
@@ -563,7 +563,7 @@ public class Card {
                 }
 
                 action.actionView = inflater.inflate(useActionLayout, actionArea, false);
-                Button actionButton = (Button) action.actionView.findViewById(R.id.card_button);
+                Button actionButton = action.actionView.findViewById(R.id.card_button);
 
                 actionButton.setText(action.label);
                 actionButton.setOnClickListener(new View.OnClickListener() {
@@ -588,8 +588,8 @@ public class Card {
             if (mCard.mCardProgress != null) {
                 //Setup progress card.
                 View progressView = inflater.inflate(R.layout.card_progress, actionArea, false);
-                ProgressBar progressBar = 
-                        (ProgressBar) progressView.findViewById(R.id.card_progress);
+                ProgressBar progressBar =
+                        progressView.findViewById(R.id.card_progress);
                 ((TextView) progressView.findViewById(R.id.card_progress_text))
                         .setText(mCard.mCardProgress.label);
                 progressBar.setMax(mCard.mCardProgress.maxValue);
@@ -726,7 +726,7 @@ public class Card {
             if (progressLabel != null) {
                 return progressLabel;
             } else if (progressView != null) {
-                progressLabel = (TextView) progressView.findViewById(R.id.card_progress_text);
+                progressLabel = progressView.findViewById(R.id.card_progress_text);
                 return progressLabel;
             } else {
                 return null;
@@ -737,7 +737,7 @@ public class Card {
             if (progressBar != null) {
                 return progressBar;
             } else if (progressView != null) {
-                progressBar = (ProgressBar) progressView.findViewById(R.id.card_progress);
+                progressBar = progressView.findViewById(R.id.card_progress);
                 return progressBar;
             } else {
                 return null;

@@ -32,7 +32,7 @@ public class Itinerary extends MadventureMenuActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.itinerary);
-        lv = (ListView) findViewById(R.id.itListView);
+        lv = findViewById(R.id.itListView);
         dbh = DBHelper.getDBHelper(this);
         context = this;
     }

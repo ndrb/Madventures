@@ -57,7 +57,7 @@ public class CardStreamFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.cardstream, container, false);
-        mLayout = (CardStreamLinearLayout) view.findViewById(R.id.card_stream);
+        mLayout = view.findViewById(R.id.card_stream);
         mLayout.setOnDismissListener(mCardDismissListener);
 
         return view;

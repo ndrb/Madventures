@@ -38,23 +38,23 @@ public class MIConverter extends MadventureMenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mi_converter);
 
-        distanceOne = (EditText) findViewById(R.id.first_distance_edit);
-        distanceTwo = (EditText) findViewById(R.id.second_distance_edit);
+        distanceOne = findViewById(R.id.first_distance_edit);
+        distanceTwo = findViewById(R.id.second_distance_edit);
 
-        volumeOne = (EditText) findViewById(R.id.first_volume_edit);
-        volumeTwo = (EditText) findViewById(R.id.second_volume_edit);
+        volumeOne = findViewById(R.id.first_volume_edit);
+        volumeTwo = findViewById(R.id.second_volume_edit);
 
-        weightOne = (EditText) findViewById(R.id.first_weight_edit);
-        weightTwo = (EditText) findViewById(R.id.second_weight_edit);
+        weightOne = findViewById(R.id.first_weight_edit);
+        weightTwo = findViewById(R.id.second_weight_edit);
 
-        dOne = (Spinner) findViewById(R.id.distance_imperial);
-        dTwo = (Spinner) findViewById(R.id.distance_metric);
+        dOne = findViewById(R.id.distance_imperial);
+        dTwo = findViewById(R.id.distance_metric);
 
-        vOne = (Spinner) findViewById(R.id.volume_imperial);
-        vTwo = (Spinner) findViewById(R.id.volume_metric);
+        vOne = findViewById(R.id.volume_imperial);
+        vTwo = findViewById(R.id.volume_metric);
 
-        wOne = (Spinner) findViewById(R.id.weight_imperial);
-        wTwo = (Spinner) findViewById(R.id.weight_metric);
+        wOne = findViewById(R.id.weight_imperial);
+        wTwo = findViewById(R.id.weight_metric);
     }
 
     /**

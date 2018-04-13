@@ -46,7 +46,7 @@ public class Weather extends MadventureMenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weather);
 
-        errorField = (TextView) findViewById(R.id.error_field);
+        errorField = findViewById(R.id.error_field);
     }
 
 
@@ -110,10 +110,10 @@ public class Weather extends MadventureMenuActivity {
             String[] results = result.split(",");
 
             if (results.length == 4) {
-                TextView locationField = (TextView) findViewById(R.id.location_res);
-                TextView tempField = (TextView) findViewById(R.id.weather_res);
-                TextView descField = (TextView) findViewById(R.id.description_res);
-                TextView humidityField = (TextView) findViewById(R.id.humidity_res);
+                TextView locationField = findViewById(R.id.location_res);
+                TextView tempField = findViewById(R.id.weather_res);
+                TextView descField = findViewById(R.id.description_res);
+                TextView humidityField = findViewById(R.id.humidity_res);
                 locationField.setText(results[2]);
                 tempField.setText(Math.round(Float.parseFloat(results[0])) + getString(R.string.celcius));
                 descField.setText(results[3]);
@@ -211,7 +211,7 @@ public class Weather extends MadventureMenuActivity {
      *            the maximum byte length to read from the stream
      * @return String result from processJSONResponse method
      */
-    public String readIt(InputStream stream, int len) throws IOException, UnsupportedEncodingException {
+    public String readIt(InputStream stream, int len) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream, "UTF-8"), len);
         StringBuilder sb = new StringBuilder();
         String line = null;

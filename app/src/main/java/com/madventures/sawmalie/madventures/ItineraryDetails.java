@@ -41,30 +41,30 @@ public class ItineraryDetails extends MadventureMenuActivity {
         db = DBHelper.getDBHelper(this);
         itId = (int) getIntent().getExtras().get("IT_ID");
 
-        dpArrived = (DatePicker) findViewById(R.id.dpArrive);
-        dpDepart = (DatePicker) findViewById(R.id.dpDepart);
+        dpArrived = findViewById(R.id.dpArrive);
+        dpDepart = findViewById(R.id.dpDepart);
 
-        nameArea = (EditText) findViewById(R.id.loc_edit_one);
+        nameArea = findViewById(R.id.loc_edit_one);
 
-        locDesc = (EditText) findViewById(R.id.loc_edit_two);
-        city = (EditText) findViewById(R.id.loc_edit_three);
-        cc = (EditText) findViewById(R.id.loc_edit_four);
-        budgetAmt = (EditText) findViewById(R.id.iti_edit_three);
-        desc = (EditText) findViewById(R.id.iti_edit_four);
-        categ = (EditText) findViewById(R.id.iti_edit_five);
+        locDesc = findViewById(R.id.loc_edit_two);
+        city = findViewById(R.id.loc_edit_three);
+        cc = findViewById(R.id.loc_edit_four);
+        budgetAmt = findViewById(R.id.iti_edit_three);
+        desc = findViewById(R.id.iti_edit_four);
+        categ = findViewById(R.id.iti_edit_five);
 
-        supName = (EditText) findViewById(R.id.iti_edit_six);
-        addr = (EditText) findViewById(R.id.iti_edit_seven);
+        supName = findViewById(R.id.iti_edit_six);
+        addr = findViewById(R.id.iti_edit_seven);
 
-        actualCB = (CheckBox) findViewById(R.id.checkBox1);
+        actualCB = findViewById(R.id.checkBox1);
         actualCB.setEnabled(false);
-        actualAmt = (EditText) findViewById(R.id.iti_actual_input);
+        actualAmt = findViewById(R.id.iti_actual_input);
 
         actualAmt.setEnabled(false);
 
-        cb = (CheckBox) findViewById(R.id.checkBox);
+        cb = findViewById(R.id.checkBox);
 
-        spin = (Spinner) findViewById(R.id.spin);
+        spin = findViewById(R.id.spin);
         Cursor curs = db.findAllLocations();
         SimpleCursorAdapter mAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_spinner_item, curs, new String[]{DBHelper.LOCATIONS_NAME}, new int[]{android.R.id.text1}, 0);
         spin.setAdapter(mAdapter);
@@ -73,7 +73,7 @@ public class ItineraryDetails extends MadventureMenuActivity {
         spin.setEnabled(false);
 
 
-        button = (Button) findViewById(R.id.button_new_itinerary);
+        button = findViewById(R.id.button_new_itinerary);
 
         button.setOnClickListener(new OnClickListener()
         {

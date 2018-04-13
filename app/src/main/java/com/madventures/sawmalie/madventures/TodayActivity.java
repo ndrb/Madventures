@@ -22,10 +22,6 @@ import android.widget.DatePicker;
 
 /**
  * Displays the itineraries associated with a specific date.
- *
- * @author Nader Baydoun
- * @author Jesse Tremblay
- * @author Joey Campanelli
  */
 @SuppressWarnings("deprecation")
 public class TodayActivity extends MadventureMenuActivity {
@@ -41,10 +37,10 @@ public class TodayActivity extends MadventureMenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.today);
         context = this;
-        lv = (ListView) findViewById(R.id.todayListView);
+        lv = findViewById(R.id.todayListView);
         db = DBHelper.getDBHelper(this);
-        dp = (DatePicker) findViewById(R.id.dp);
-        bu = (Button) findViewById(R.id.bu);
+        dp = findViewById(R.id.dp);
+        bu = findViewById(R.id.bu);
 
         bu.setOnClickListener(new OnClickListener() {
             @Override
@@ -123,6 +119,7 @@ public class TodayActivity extends MadventureMenuActivity {
         sca = new SimpleCursorAdapter(this, R.layout.itinerary_view, c, from, to, 0);
         lv.setAdapter(sca);
         Log.i("CURSOR1", "" + c);
+        refreshView(day);
     }
 
     /**
@@ -145,8 +142,7 @@ public class TodayActivity extends MadventureMenuActivity {
     private void refreshView(String date) {
         // renew the cursor
         Cursor cursor = db.findItinerariesForDate(date);
-        // have the adapter use the new cursor, changeCursor closes old cursor
-        // too
+        // have the adapter use the new cursor, changeCursor closes old cursor too
         sca.changeCursor(cursor);
         // have the adapter tell the observers
         sca.notifyDataSetChanged();

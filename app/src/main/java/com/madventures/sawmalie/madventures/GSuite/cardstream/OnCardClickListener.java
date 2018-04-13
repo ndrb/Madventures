@@ -17,5 +17,5 @@
 package com.madventures.sawmalie.madventures.GSuite.cardstream;
 
 public interface OnCardClickListener {
-    public void onCardClick(int cardActionId, String cardTag);
+    void onCardClick(int cardActionId, String cardTag);
 }

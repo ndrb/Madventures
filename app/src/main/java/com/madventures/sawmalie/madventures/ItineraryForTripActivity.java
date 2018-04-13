@@ -33,7 +33,7 @@ public class ItineraryForTripActivity extends MadventureMenuActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.itinerary);
-        lv = (ListView) findViewById(R.id.itListView);
+        lv = findViewById(R.id.itListView);
         context = this;
         tripId = getIntent().getExtras().getInt("TRIP_ID");
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);

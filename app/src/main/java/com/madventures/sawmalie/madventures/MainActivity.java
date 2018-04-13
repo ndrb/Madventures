@@ -34,7 +34,6 @@ public class MainActivity extends MadventureMenuActivity {
     private static final int WEATHER_VAL = 5;
     private static final int CUR_CONV_VAL = 6;
 
-    private static final int PLACE_PICKER_VAL = 8;
     private static final int MAPS_VAL = 9;
     private static final int MANAGE_TRIPS_VAL = 10;
 
@@ -48,10 +47,10 @@ public class MainActivity extends MadventureMenuActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String name = prefs.getString("name", "");
 
-        helloTextView = (TextView) findViewById(R.id.helloTextView);
+        helloTextView = findViewById(R.id.helloTextView);
         helloTextView.setText(getString(R.string.helloUser) + name);
 
-        GridView gridView = (GridView) findViewById(R.id.gridview);
+        GridView gridView = findViewById(R.id.gridview);
         gridView.setAdapter(new ImageAdapter(this));
         // Attach the event for selecting an image
         gridView.setOnItemClickListener(new OnItemClickListener() {
@@ -109,10 +108,6 @@ public class MainActivity extends MadventureMenuActivity {
                 break;
             case ITINERARY_VAL:
                 i = new Intent(this, Itinerary.class);
-                break;
-            case PLACE_PICKER_VAL:
-                i = new Intent(this, PlacePicker.class);
-                Log.v("LOL",i.toString());
                 break;
             case MAPS_VAL:
                 i = new Intent(this, MapsActivity.class);
